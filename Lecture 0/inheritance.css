@@ -1,0 +1,14 @@
+.success, .fail {
+  font-size: 28px;
+  margin: 20px;
+  border: 1px solid black;
+}
+
+.success {
+  background-color: springgreen;
+}
+
+.fail {
+  background-color: red;
+}
+/*# sourceMappingURL=inheritance.css.map */

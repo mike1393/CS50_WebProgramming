@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Sign Up</title>
+    </head>
+    <body>
+        <h1>Sign Up</h1>
+        <form>
+            <h3>User Info</h3>
+            <div>
+                First Name:
+                <input type="text" placeholder="First Name" name="First Name">
+                Last Name:
+                <input type="text" placeholder="Last Name" name="Last Name">
+            </div>
+            <div>
+                Date Of Birth:
+                <input type="text" placeholder="mm/dd/yyyy" name="Date Of Birth">
+            </div>
+            <div>
+                Gender:
+                <input name="Gender" type="radio" value="Male">Male
+                <input name="Gender" type="radio" value="Female">Female
+                <input name="Gender" type="radio" value="Not Listed">Not Listed
+            </div>
+            <div>
+                Citizenship:
+                <input name="Country" list="Country" placeholder="Country">
+                <datalist id="Country">
+                    <option value="Australlia">
+                    <option value="Brasil">
+                    <option value="Canada">
+                    <option value="Disneyland">
+                    <option value="Egypt">
+                    <option value="Taiwan">
+                    <option value="United State">
+                    <option value="United Kingdom">
+                </datalist>
+            </div>
+            <h3>Term</h3>
+            <div>
+                <input name="Confirm" type="checkbox" value="Confirm">
+                I have read the term.
+            </div>
+            <div>
+                <input type="Submit">
+            </div>
+            <div>
+                Already got an account?
+                <a href="signin.html">Log In Here</a>
+            </div>
+        </form>
+    </body>
+</html>
