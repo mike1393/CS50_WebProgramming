@@ -1,0 +1,128 @@
+body {
+    margin: 0px;
+    background-color: white;
+}
+
+code {
+    white-space: pre;
+}
+
+h1 {
+    margin-top: 0px;
+    padding-top: 20px;
+}
+
+textarea {
+    height: 90vh;
+    width: 80%;
+}
+
+.main {
+    padding: 20px;
+}
+
+.search {
+    width: 100%;
+    font-size: 15px;
+    line-height: 15px;
+}
+
+.sidebar {
+    background-color: #f0f0f0;
+    height: 100vh;
+    /* height: 100%; */
+    padding: 30px;
+}
+
+.sidebar .home{
+    /* height: 24px; */
+    display: block;
+    margin: 5px 0 20px 20px;
+    align-items: center;
+    box-sizing: border-box;
+    /* border: 1px solid red; */
+}
+
+.sidebar .home div{
+    display: inline-block;
+    align-items: center;
+    line-height: 24px;
+    font-size: 30px;
+    margin-right: 5px;
+}
+
+
+.sidebar .home a{
+    text-decoration: none;
+}
+
+
+.side_links{
+    margin: 20px 0 0 15px;
+    box-sizing: border-box;
+    /* border: 1px solid red; */
+}
+
+.side_links div{
+    margin-bottom: 10px;
+    color: rgb(26, 26, 26);
+    /* border: 1px solid blue; */
+}
+
+.side_links div a{
+    color: rgb(26, 26, 26);
+    text-decoration: none;
+}
+
+.side_links div:hover{
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.side_links div:hover svg{
+    width:18px;
+    height: 18px;
+}
+
+label[required]:after {
+    content: " *";
+    color: red;
+}
+
+.message{
+    text-align: center;
+}
+
+.entry_nav{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+.nav_block{
+    display: inline-block;
+    align-items: center;
+    margin-right: 40px;
+    margin-left: 10px;
+}
+
+.nav_block a{
+    color: rgb(32, 32, 32);
+}
+
+.nav_block:hover{
+    cursor: pointer;    
+}
+
+
+textarea:hover, input:hover{
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.13);
+    border: 1px solid rgba(170, 170, 170, 0.144);
+}
+
+.main h1{
+    margin-bottom: 30px;
+}
+
+ul li{
+    margin-top: 5px;
+}

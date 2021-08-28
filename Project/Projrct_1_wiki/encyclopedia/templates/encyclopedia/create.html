@@ -1,0 +1,43 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Create Encyclopedia
+{% endblock %}
+
+{% block body %}
+    <h1>New Page</h1>
+    
+    {% if message != "" %}
+    <div class="alert alert-danger col-10 message" role="alert">
+        {{message}}
+    </div>
+    {% endif %}
+        
+    <form action="{% url 'create' %}" method="POST">
+        {% csrf_token %}
+        <div class="title_bar_block form-group">
+            <label for="new_title" required>New Title</label>
+            
+            {% if title == "" %}
+            <input type="text" class="title_bar form-control col-5" id="new_title" name="new_title" placeholder="New Title" required>
+            {% else %}
+            <input type="text" class="title_bar form-control col-5" id="new_title" name="new_title" placeholder="New Title" value="{{title}}" required>    
+            {% endif %}
+        </div>
+
+        <div class="content_area_block form-group">
+            <label for="new_content">New Content</label>
+            {% if content == "" %}
+            <textarea class="content_area form-control col-10" name="new_content" id="new_content"  rows="10" placeholder="Write something here"></textarea>
+            {% else %}
+            <textarea class="content_area form-control col-10" name="new_content" id="new_content"  rows="10">{{content}}</textarea>    
+            {% endif %}
+            <small class="form-text text-muted">Enter your content in markdown style</small>
+        </div>
+        <div class="form_submit">
+            <button class="btn btn-primary" type="submit">Save</button>
+        </div>
+        
+    </form>
+
+{% endblock %}
