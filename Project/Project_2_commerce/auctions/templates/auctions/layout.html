@@ -1,0 +1,93 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>{% block title %}Auctions{% endblock %}</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+        <link href="{% static 'auctions/styles.css' %}" rel="stylesheet">
+    </head>
+    <body>
+        <nav class="main_nav">
+            <div class="main_nav_component">
+                <div class="home" id="home">
+                    <a href="{%url 'index'%}">Auction</a> 
+                </div>
+                
+                <form class="search">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                              <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categories</button>
+                              <div class="dropdown-menu">
+                                  {% for category in  categories%}
+                                  <a class="dropdown-item" href="{% url 'category_search' category.name %}">{{category.name}}</a>
+                                  {% endfor %}
+                              </div>
+                            </div>
+                            <input type="text" class="form-control">
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-secondary" type="button">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                                        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                                      </svg>
+                                </button>
+                            </div>
+                        </div>
+                </form>
+                <div class="login">
+                    <span class="greet">Hello,</span>
+                    <span class="username">
+                        {% if user.is_authenticated %}
+                            <strong>{{ user.first_name }}</strong>.
+                        {% else %}
+                            Sign in.
+                        {% endif %}
+                    </span>
+                </div>
+            </div>
+        </nav>
+        <nav class="sub_nav">
+            <div class="sub_nav_component">
+                <div class="left_block">
+                    <div class="nav_link">
+                        <a href="{% url 'index' %}">All Listings</a>
+                    </div>
+                    <div class="nav_link">
+                        <a href="{% url 'category' %}">Categories</a>
+                    </div>
+                </div>
+                <div class="right_block">
+                    <div class="nav_link">
+                        <a href="{% url 'create' %}">Create Listing</a>
+                    </div>
+                    <div class="nav_link">
+                        <a href="{% url 'my_watchlist' %}">My Watchlist</a>
+                    </div>
+                    {% if user.is_authenticated %}
+                    <div class="nav_link">
+                        <a href="{% url 'logout' %}">Log Out</a>
+                    </div>
+                    {% else %}
+                    <div class="nav_link">
+                        <a href="{% url 'login' %}">Log In</a>/
+                        <a href="{% url 'register' %}">Register</a>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </nav>
+        
+        {% if page_title != "" %}
+            <header>
+                <div class="page_title">{{page_title}}</div>
+            </header>
+        {% endif %}
+        {% block body %}
+        {% endblock %}
+        <footer>
+
+        </footer>
+    </body>
+</html>

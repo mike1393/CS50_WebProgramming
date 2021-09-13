@@ -1,0 +1,56 @@
+{% extends "auctions/layout.html" %}
+{% load static %}
+
+{% block body %}
+<main style="height: 150vh;">
+    <div class="sub_main">
+        <section>
+            <hr>
+            {% for listing in auction_list %}
+             <a href="{% url 'listing' listing.listing_name%}" class="listing_link">
+                <div class="listing">
+                    <div class="listing_pic">
+                        <div class="pic_container">
+                            <img src="{{listing.listing_picture.url}}" alt="{{listing.listing_name}}">
+                        </div>
+        
+                    </div>
+                    <div class="listing_detail">
+                        <div class="listing_detail_component listing_name">
+                            <div class="index_page_listing_name">
+                                {{listing.listing_name}}
+                            </div>
+                        </div>
+                        <div class="listing_detail_component listing_price">
+                            <div class="current_price">
+                                {% if  listing.biddings.last is not None %}
+                                    Current price:${{listing.biddings.last.price}}
+                                {% else %}
+                                    There are currently no bids.
+                                {% endif %}
+                            </div>
+                            <div class="starting_price">
+                                (Starting at: ${{listing.min_bid}})
+                            </div>
+                        </div>
+                        <div class="listing_detail_component listing_description">
+                            <div class="content">
+                                {{listing.description}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+             </a>   
+            <hr>
+            {% endfor %}
+                
+    
+        </section>
+    </div>
+
+</main>
+
+
+    
+    
+{% endblock %}

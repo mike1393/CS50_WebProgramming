@@ -1,0 +1,26 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+
+
+<main >
+    <section style="align-items: center; padding: 3% 0; background-color: #EDF6F9;">
+        {% if success_message %}
+        <div class="alert alert-success col-12 message" role="alert" style="text-align: center;">
+            {{success_message}}
+        </div>
+        {% elif error_message %}
+        <div class="alert alert-danger col-12 message" role="alert">
+            {{error_message}}
+        </div>
+        {% endif %}
+        
+        {% block form %}
+            
+        {% endblock form %}
+            
+        
+    </section>
+</main>
+
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends "auctions/listing.html" %}
+{% load widget_tweaks %}
+
+
+{% block signed_in_action %}
+        <div class="form_set">
+            <label for="place_bids" class="form-label" style="color: #A6A6A6; font-style: italic;">Starting at: ${{listing.min_bid}}</label>
+        </div>
+        <div class="form_set" style="margin-top: 20%;">
+            <a class="btn place_bids btn-lg" href="{% url 'login' %}" role="button">Log In</a>
+            <label for="place_bids" class="form-label" style="color: #A6A6A6; ">Log in to place bids!</label>
+        </div>
+{% endblock signed_in_action %}
+
+
+{% block add_comment %}
+<div class="add_comment form_set">
+    <div class="form-group">
+        
+        <a class="btn place_bids btn-lg" href="{% url 'login' %}" role="button" style="margin-top: 5%;">Add a Comment</a>
+    </div>
+</div>
+{% endblock add_comment %}

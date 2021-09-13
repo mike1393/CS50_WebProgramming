@@ -1,0 +1,60 @@
+{% extends "auctions/listing.html" %}
+{% load widget_tweaks %}
+
+{% block notification %}
+{% if success_message != "" %}
+<div class="alert alert-success col-12 message" role="alert" style="text-align: center;">
+    {{success_message}}
+</div>
+{% elif error_message != "" %}
+<div class="alert alert-danger col-12 message" role="alert">
+    {{error_message}}
+</div>
+{% endif %}
+{% endblock notification %}
+
+{% block signed_in_action %}
+<form action="{% url 'listing_signed_in' user.username listing.listing_name %}" class="form_set form-group" method="POST">
+    {% csrf_token %}
+        {% if  listing.is_open %}
+            {% if listing.owner.username == user.username %}
+                <input type="hidden" name="close_bid" value="close_bid">
+                <button class="btn remove_list btn-lg" type="submit">Close Auction</button>
+            {% else %}
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">$</span>
+                    </div>
+                    {{bidding_form.price|add_class:'form-control'|attr:"name:place_bids"|attr:"id:place_bids"|attr:"required"}}
+                </div>
+                <label for="place_bids" class="form-label" style="color: #A6A6A6; font-style: italic;">Starting at: ${{listing.min_bid}}</label>
+                <button class="btn place_bids btn-lg" type="submit">Place Bids</button>
+            {% endif %}
+        {% else %}
+            <label for="place_bids" class="form-label" style="color: #A6A6A6; font-style: italic;">The list is no longer active.</label>
+        {% endif %}
+</form>
+<form action="{% url 'listing_signed_in' user.username listing.listing_name %}" class="form_set form-group" method="POST">
+    {% csrf_token %}
+    {% if listing in user.watchlists.listing.all %}
+        <input type="hidden" name="watchlist" value="remove_list">
+        <label for="place_bids" class="form-label" style="color: #A6A6A6; font-style: italic;">Watchlist:</label>
+        <button class="btn remove_list btn-lg" type="submit">Remove from List</button>
+    {% else %}
+        <input type="hidden" name="watchlist" value="add_to_list">
+        <label for="place_bids" class="form-label" style="color: #A6A6A6; font-style: italic;">Watchlist:</label>
+        <button class="btn add_to_list btn-lg" type="submit">Add to List</button>
+    {% endif %}
+</form>                   
+{% endblock signed_in_action %}
+
+{% block add_comment %}
+<div class="add_comment">
+    <form action="{% url 'listing_signed_in' user.username listing.listing_name %}" class="form-group" method="POST">
+        {% csrf_token %}
+        <label for="comment_text_area">Add a Comment:</label>
+        {{comment_form.content|add_class:'form-control'|attr:"cols:70"|attr:"rows:10"|attr:"name:comment_text_area"|attr:"required"}}
+        <button class="btn add_to_list btn-lg" type="submit">Comment</button>
+    </form>
+</div>
+{% endblock add_comment %}

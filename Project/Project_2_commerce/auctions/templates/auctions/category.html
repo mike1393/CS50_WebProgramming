@@ -1,0 +1,43 @@
+{% extends "auctions/layout.html" %}
+{% load static %}
+
+{% block body %}
+<main style="height: 150vh;">
+    <div class="sub_main">
+        <div class="category_blocks">
+            <hr>
+            {% for category in categories %}
+            
+                <div class="category_block">
+
+                        <div class="listing_pic" style="width: 80%; height: 70%;">
+                            <div class="pic_container" style="height: auto; width: auto; margin: 0;">
+                                <a href="{% url 'category_search' category.name %}" class="category_link">
+                                    <img src="{{category.picture.url}}" alt="{{category.picture}}">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="category_name">
+                            <a href="{% url 'category_search' category.name %}" class="category_link">
+                                {{category.name}}
+                            </a>
+                        </div>
+                
+                </div>
+            
+
+            <hr>
+            {% endfor %}
+        </div>
+
+                
+    
+        
+    </div>
+
+</main>
+
+
+    
+    
+{% endblock %}

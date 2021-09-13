@@ -1,0 +1,137 @@
+{% extends "auctions/layout.html" %}
+
+{% load static %}
+{% load widget_tweaks %}
+
+
+{% block body %}
+
+
+{% block notification %}
+{% endblock notification %}
+    
+
+    <main style="height: 200vh;">
+        <div class="sub_main">
+            <section style="max-width: 1200px; min-width: 900px;">
+                <div class="not_comment">
+                    <div class="listing_pic">
+                        <div class="pic_container" style="height: 70%;margin-top:10%; border-right: 2px solid rgb(221, 219, 219);">
+                            <img src="{{listing.listing_picture.url}}" alt="{{listing.listing_picture}}">
+                        </div>
+                    </div>
+                    <div class="listing_detail" style="width: 35%; height: 100%; ">
+                            <div class="listing_name listing_detail_component" style="height: 20%; margin: 0px 10px; margin-top: 10%;">
+                                <div class="listing_page_listing_name" id="listing_name">
+                                    {{listing.listing_name}}
+                                </div>
+                            </div>
+                            <div class="listing_price listing_detail_component"style="height: 10%; margin: 5% 10px; width:90%;">
+                                <div class="owner_and_comment" style="margin-left: 10px;">
+                                <span class="owner">Listed by: {{listing.owner.username}}</span>
+                                &nbsp;|&nbsp;
+                                <span class="comment_link">
+                                <a href="#comment_section">Comments</a>    
+                                </span>
+                                </div>
+                                <div class="number_of_bids"style="margin-left: 10px; ">                               
+                                    {% if listing.biddings.count == 0 %}
+                                    <span>There are currently no biddings.</span>
+                                    {% else %}
+                                    <span>Number of bids: {{listing.biddings.count}}</span>
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <div class="listing_description listing_detail_component"style="height: auto; width:95%; margin-left:10px; margin-top:5%;">
+                                <h4 style="margin-top: 10%; margin-left: 10px;">About this item:</h4>
+                                <div class="description"style="margin-top:2%;">
+                                        {{listing.description}}
+                                </div>
+
+                            </div>
+                    </div>
+                    <div class="call_to_action">
+                        <div class="current_price">
+                            {% if  listing.biddings.last is not None %}
+                                Current price:&nbsp;
+                                <div>
+                                    <div class="last_price">${{listing.biddings.last.price}}</div>
+                                    <div class="current_bidder">by:&nbsp;{{listing.biddings.last.bidder.username}}</div>
+                                </div>
+                                
+                            {% else %}
+                                Starting at:&nbsp;
+                                <div>
+                                    <div class="last_price">${{listing.min_bid}}</div>
+                                </div>
+                            {% endif %}
+                        </div>
+                        
+                        {% block signed_in_action %}
+                            
+                        {% endblock signed_in_action %}
+                            
+                    </div>
+                </div>
+                <div class="comment">
+                    <h2 id="comment_section">Comments:</h2>
+                    <div class="comment_area">
+                        {% for comment in listing.comments.all %}
+                            <div class="comment_card">
+                                <div class="main_comment">
+                                    <div class="user_picture">
+                                        <div class="pic_container" style="height: 60%;margin-top:5%;">
+                                            <img src="{{comment.commentor.profile_pic.url}}" alt="{{comment.replier.profile_pic}}">
+                                        </div>
+                                    </div>
+                                    <div class="user_comment">
+                                        <h6>{{comment.commentor.username}}</h6>
+                                        <div class="description">
+                                            {{comment.content}}
+                                        </div>
+                                        <div class="sub_nav_component" style="height: 30%;">
+                                            <div class="right_block">
+                                                <div class="nav_link" style="color: #A6A6A6;">
+                                                    {{comment.timestamp}}
+                                                </div>
+                                                <div class="nav_link" style="color: #006D77;">
+                                                    reply
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                {% for reply in comment.replies.all%}
+                                    
+                                    <div class="sub_nav_component" style="border-top: 1px solid #a6a6a6e0;">
+                                        <div class="left_block"style="left:2px;">
+                                            <div class="nav_link" style="color: #006D77;">
+                                                {{reply.replier.username}}:&nbsp;&nbsp;{{reply.content}}
+                                            </div>
+                                        </div>
+                                        <div class="right_block">
+                                            <div class="nav_link" style="color: #A6A6A6;">
+                                                {{comment.timestamp}}
+                                            </div>
+                                        </div>
+                                    </div>       
+                                {% endfor %}
+                            </div>                                    
+                        {% endfor %}
+                        
+                        
+                        {% block add_comment %}
+
+                        {% endblock add_comment %}
+                            
+
+
+                        <a href="#home">Back to top</a>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+    
+{% endblock %}

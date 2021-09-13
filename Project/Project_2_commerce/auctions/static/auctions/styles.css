@@ -1,0 +1,748 @@
+/*-------------------- debug lines --------------------*/
+/* main, .sub_main, section, aside, form{
+outline: 1px solid black;
+} */
+
+/* .side_nav, .side_title, .side_nav_list, .side_nav_link{
+outline: 1px solid black;
+} */
+
+/* .listing, .listing_pic, .listing_detail, .listing_detail_component,.listing_name,.listing_name div,
+.listing_price,.listing_price div,.listing_description div,.pic_container,.pic_container img{
+outline: 1px solid black;
+} */
+
+/* .create_form, .listing_form{
+    outline: 1px solid black;
+} */
+
+
+/* .comment, .comment_area,.comment_card,.main_comment,
+.user_picture, .user_comment, .info_bar,.comment h2,
+.user_comment h6,.user_comment .description,.add_comment{
+    outline: 1px solid black;
+} */
+
+/* .not_comment,.owner_and_comment, .number_of_bids,.call_to_action,.current_price, .form_set{
+    outline: 1px solid black;
+} */
+
+/* .sub_nav_component,.right_block,.nav_link{
+    outline: 1px solid black;
+} */
+
+/* .category_blocks, .category_block,.category_name{
+    outline: 1px solid black;
+}  */
+
+/*----------------------- gloabal --------------------------*/
+
+* {
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 16px;
+    height: 100%;
+}
+body {
+    height: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: rgba(255, 255, 255, 0.979);
+    min-width: 1000px;
+    margin: 0;
+    padding: 0;
+}
+
+header{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.125rem;
+    margin: 0;
+    /* outline: 1px solid black; */
+    height: 18vh;
+}
+
+
+main{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+aside{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+    height:100%;
+    width: 20%;
+    min-width: 250px;
+    margin-right: 70px;
+    background-color: #EDEDED;
+    box-shadow: 0 0 3px #EDEDED;
+}
+section{
+    display: flex;
+    flex-direction: column;
+    align-content: flex-start;
+    height:100%;
+    width: 79%;
+    max-width: 700px;
+    border-collapse:collapse;
+}
+footer{
+    height: 12vh;
+    min-height: 50px;
+    background-color: #264653;
+}
+hr{
+    margin: 0px 0;
+    background-color: rgb(185, 181, 181);
+}
+
+a{
+    text-decoration: none;
+    color: none;
+}
+/* -----------------typepology ---------------------*/
+
+
+.page_title{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 3rem;
+    font-weight: bold;
+    height: 90%;
+    width: 95%;
+    /* margin: 0 10px; */
+    max-width: 1200px;
+    /* outline: 1px solid black; */
+}
+
+.index_page_listing_name{
+    font-size: 2rem;
+    font-weight: bolder;
+    margin-left: 5px;
+
+}
+
+.listing_page_listing_name{
+    /* font-size: 2vw; */
+    font-size: calc(3vh + 1vw);
+    /* font-size: 4vw; */
+    font-weight: 100%;
+    margin-left: 5px;
+
+}
+
+.current_price .last_price{
+    font-size: calc(4vh + 1vw);
+    /* margin-left: 5px; */
+}
+
+.current_price .current_bidder{
+    font-size: calc(1.5vh + 0.5vw);
+    /* margin-left: 5px; */
+}
+
+.description{
+    font-size: calc(1.75vh + 0.25vw);
+    /* font-size: 1rem; */
+    width: 95%;
+    margin: 0 auto;
+}
+
+.comment h2{
+    font-size: calc(4vh + 1vw);
+    margin-top: 5%;
+    margin-bottom: 10px;
+}
+
+.user_comment h6{
+    font-weight: bold;
+    font-size: calc(2vh + 0.25vw);
+    width: 95%;
+    margin-left: 5px;
+    margin-bottom:0;
+}
+
+.user_comment .description{
+    width: 99%;
+    /* margin: 0 auto; */
+    margin-left: 5px;
+    
+}
+
+.add_comment label{
+    color: #8b8b8b;
+    font-weight: bold;
+    font-size: calc(2.5vh + 0.25vw);
+    margin-top: 10px;
+}
+
+
+.category_name{
+    font-weight: bold;
+    font-size: calc(2vh + 0.5vw);
+    width: 95%;
+    text-align: center;
+    color: #006D77;
+}
+/*======================== layout: Navigation  ====================*/
+
+/*--------- main navigation ---------------*/
+
+.main_nav, .sub_nav{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    margin: 0;
+}
+.main_nav{
+    height: 12vh;
+    min-height: 50px;
+    background-color: #264653;
+    /* outline-color: black; */
+}
+.main_nav_component, .sub_nav_component{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    height: 100%;
+    margin: 0.5vh 1vw;
+    /* outline: 1px solid white; */
+}
+
+.main_nav_component{
+    min-height: 45px;
+    /* outline: 1px solid white; */
+}
+.home{
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: white;
+    margin: 0 3vw 0 1vw;
+    /* outline: 1px solid white; */
+}
+
+.search{
+    
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+    width: 60vw;
+    /* height: 70%; */
+    min-width: 500px;
+
+}
+
+
+
+.login{
+    display: flex;
+    flex-direction: row;
+    /* flex-wrap: wrap; */
+    font-weight: bold;
+    height: 100%;
+    min-width: 200px;
+    color: white;
+    align-content: center;
+    align-items: center;
+    margin: 0 3vw;
+    font-size: 2rem;
+    /* outline: 1px solid white; */
+}
+
+.greet, .username{
+    display: inline-block;
+    height: 60px;
+    line-height: 60px;
+    min-width: 70px;
+    text-align: center;
+    margin-right: 10px;
+    /* outline: 1px solid white; */
+}
+
+
+/*-------- sub navigation ------*/
+.sub_nav{
+    height: 6vh;
+    min-height: 30px;
+    background-color: #2E5464;
+}
+
+.sub_nav_component{
+    min-height: 25px;
+    position: relative;
+    /* outline: 1px solid white; */
+}
+
+.left_block, .right_block{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    height: 90%;
+    margin: auto;
+    /* outline: 1px dotted yellow; */
+}
+
+.left_block{
+    position: absolute;
+    left: 5px;
+}
+.right_block{
+
+    position: absolute;
+    right: 5px;
+}
+.nav_link {
+    color: white;
+    display: inline-block;
+    margin-right: 20px;
+    /* outline: 1px dotted white; */
+}
+
+
+/* ========================= layout: Main =============== */
+.sub_main{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    /* justify-content: space-around; */
+    justify-content: center;
+    align-items: center;
+    margin: 10px 10px;
+    height:95%;
+    width: 100%;
+    max-width: 1600px;
+}
+
+/*----- Category side bar----*/
+.side_nav{
+    margin: 20px 5px;
+    width: 70%;
+}
+.side_title{
+    font-size: 2rem;
+    margin-left: 10px;
+}
+.side_nav_list{
+    margin-top: 10px;
+    margin-left: 20px;
+}
+.side_nav_link{
+    font-size: 1.1rem;
+    margin-left: 20px;
+    margin-bottom: 10px;
+}
+
+/* ------Listing Cards -----*/
+.listing{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    width: 100%;
+    aspect-ratio: 16/6;
+    border-collapse:collapse;
+    color: black;
+}
+
+.listing:hover, .listing:focus{
+    cursor: pointer;
+box-shadow: 0 0 10px rgba(223, 223, 223, 0.897);
+}
+
+/*=========================*/
+/* ------- picture -------*/
+/*=========================*/
+.listing_pic{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+    width: 35%;
+    height: 100%;
+}
+
+.pic_container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+    height: 80%;
+    width: 90%;
+    margin: auto;
+}
+
+.pic_container img{
+    max-width: 100%;
+    max-height: 90%;
+}
+
+.user_picture{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+    width: 16%;
+    height: 100%;
+}
+
+/*==========================================*/
+/* ------- Listing Info, Form layout -------*/
+/*==========================================*/
+
+.listing_detail{
+    width: 65%;
+    height: 100%;
+}
+
+.listing_detail_component{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items:flex-start;
+}
+
+.listing_name{
+    width: 100%;
+    height: 30%;
+}
+
+
+.listing_price{
+    width: 100%;
+    height: 20%;
+}
+
+.listing_price div{
+    margin-left: 15px;
+}
+
+
+
+.listing_description{
+    justify-content: flex-start;
+    width: 100%;
+    height: 50%;
+}
+
+.listing_description .content{
+    font-style: italic;
+    color: #a8a8a8;
+    margin: 0 5px;
+    margin-top: 10px;
+    margin-left: 15px;
+}
+
+
+.not_comment{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    /* height: 50%; */
+    /* aspect-ratio: 16/9; */
+    width: 100%;
+}
+
+
+.call_to_action{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    /* justify-content: center; */
+    align-items: center;
+    border-left: 2px solid rgb(221, 219, 219);
+    width: 30%;
+    height: 80%;
+    margin-top: 5%;
+}
+
+
+
+.current_price{
+    display: flex;
+    flex-direction: row;
+    /* justify-content: center; */
+    align-items: center;
+    width: 95%;
+    /* height: 20%; */
+}
+.form_set{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5%;
+    width: 60%;
+    min-width: 200px;
+}
+
+
+
+.owner_and_comment, .number_of_bids{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+width: 100%;
+height: 50%;
+}
+
+.comment{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    /* height: 50%; */
+    height: auto;
+    width: 100%;
+    border-top: 2px solid rgb(221, 219, 219);
+}
+
+.comment_area{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: flex-end;
+    padding: 2%;
+    height: inherit;
+    width: inherit;
+}
+
+.comment_card{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    /* align-items: center; */
+    width: 90%;
+    height: auto;
+background-color: #EDF6F9;
+border-radius: 10px;
+margin-bottom: 10px;
+}
+.main_comment{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    width: 95%;
+}
+
+.user_comment{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content:space-between;
+    padding-top: 15px;
+    width: 100%;
+}
+.info_bar{
+    margin-top: 10px;
+}
+
+.add_comment{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 90%;
+    height: auto;
+    padding-left: 10px;
+    margin-top: 30px;
+    border-top:2px solid rgb(221, 219, 219);
+}
+
+.category_blocks{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    height:100%;
+    width: 79%;
+    max-width: 800px;
+    border-collapse:collapse;
+}
+
+.category_block{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    height:30%;
+    width: 33.3%;
+    background-color: #EDF6F9;
+    border-left: 1px solid rgb(221, 219, 219);
+    border-bottom: 1px solid rgb(221, 219, 219);
+}
+
+.category_block:hover,
+.category_block:focus{
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(223, 223, 223, 0.897);
+}
+
+/*======================= component ======================*/
+
+/* link */
+
+.home a,.nav_link a{
+    text-decoration: none;
+    color: white;
+}
+
+.home a:hover, .nav_link a:hover{
+    color: rgba(255, 255, 255, 0.815);
+}
+
+
+.listing_link, .listing_link:hover{
+    text-decoration: none;
+    color: none;
+}
+
+.side_nav_link a,.side_nav_link a:hover{
+    text-decoration: none;
+    color: black;
+}
+.side_nav_link a:hover,
+.side_nav_link a:focus{
+    text-decoration: underline;
+}
+
+
+.category_link,.category_link:hover, 
+.category_link:focus{
+    color: #006D77;
+}
+
+
+
+/*-------------- form -----------------*/
+
+.create_form{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: nowrap;
+    width: 100%;
+    height: 100%;
+}
+
+.listing_form{
+ margin-left: 30px;
+}
+
+.listing_form input[type="number"]::after{
+content: "$";
+}
+.listing_form label:not([for="listing_pic_upload"]):after{
+    content: " *";
+    color: red;
+}
+
+.user_form{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    padding: 3% 0;
+    border: 2px solid rgb(221, 219, 219);
+    
+
+}
+.user_form input{
+    margin-bottom: 10px;
+    text-align: center;
+
+
+}
+.user_form button{
+    width: 70%;
+    margin-bottom: 10px;
+}
+.register_link{
+    margin-top: 1%;
+}
+
+/*--------------- button ------------- */
+
+
+
+
+
+.form_set .place_bids{
+    background-color: #E9C46A;
+    color: white;
+    /* margin-top: 2%; */
+}
+
+.form_set .add_to_list{
+    background-color: #EDF6F9;
+    color: #006D77;
+    /* margin-top: 5%; */
+}
+.remove_list{
+    background-color: #F6BBBD;
+    color: #a36366;
+    /* margin-top: 5%; */
+}
+
+.form_set .place_bids:hover, 
+.form_set .place_bids:focus{
+    background-color: rgb(235, 179, 37);
+    color: white;
+}
+
+.form_set .add_to_list:hover,
+.form_set .add_to_list:focus{
+    background-color: #daf2fa;
+    color: #006D77;
+}
+
+.remove_list:hover,
+.remove_list:focus{
+    background-color: #f3a6a8;
+    color: #a36366;
+    /* margin-top: 5%; */
+}
+
+.search .dropdown-toggle{
+    background-color: #A6A6A6;
+    color: white;
+}
+
+.search .input-group-append .btn-outline-secondary{
+    background-color: #E9C46A;
+    color: white;
+}
+
+.add_comment button{
+    margin-top: 10px;
+    background-color: #EDF6F9;
+    color: #006D77;
+}
+
+.add_comment button:hover,
+.add_comment button:focus{
+    background-color: #daf2fa;
+    color: #006D77;
+}
+
