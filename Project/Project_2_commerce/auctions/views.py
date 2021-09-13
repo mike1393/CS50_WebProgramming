@@ -140,10 +140,13 @@ def create(request):
     form = ListingForm()
     if request.method == "POST":
         form = ListingForm(request.POST,request.FILES)
+        print(form.is_valid())
         if form.is_valid():
             new_list = form.save(commit=False)
             new_list.owner =request.user
+            new_list.is_open = True
             new_list.save()
+            return HttpResponseRedirect(reverse("index"))
     
     return render(request, "auctions/create.html",{
             "page_title":page_title,
@@ -197,7 +200,7 @@ def listing_signed_in(request,username,name):
             if bidding_form.is_valid():
                 new_bidding_form = bidding_form.save(commit=False)
                 condition1 = listing.biddings.count()==0 and new_bidding_form.price >= listing.min_bid
-                condition2 = listing.biddings.count()>0 and new_bidding_form.price >= listing.biddings.last().price
+                condition2 = listing.biddings.count()>0 and new_bidding_form.price > listing.biddings.last().price
                 if condition1 or condition2:
                     new_bidding_form.bidder =request.user
                     new_bidding_form.listing =listing
